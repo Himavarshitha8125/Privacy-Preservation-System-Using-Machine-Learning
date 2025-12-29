@@ -35,3 +35,22 @@ Finally, I calculated two losses: one from K-Means and another from the heuristi
 
 Metrics:
 The accuracy drop after anonymization was minimal, showing that the privacy‑preserving step didn’t harm the dataset’s analytical value. The comparison between K-Means and heuristic loss also showed that the heuristic method offered better privacy with acceptable accuracy.
+
+
+Architecture:
+ Primary Design Pattern: Modular Pipeline Architecture
+ Why it fits: Sequential data flow where each module has a single responsibility.
+
+🔹 Specific System Design Types Used:
+1. Batch Processing System
+Processes entire dataset (100+ records) at once
+No real-time/streaming — loads CSV → processes → outputs results
+
+2. Data Pipeline Architecture
+Upload → Clean → Cluster → Align → Generalize → Visualize
+Each stage transforms data and passes to next
+
+3. MVC Pattern (Mini)
+Model: Pandas DataFrame + ML models
+View: Tkinter GUI + Matplotlib graphs
+Controller: Button handlers (uploadDataset(), runKmeansSA())
